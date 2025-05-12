@@ -12,6 +12,8 @@
 - DFS: Đi sâu hết một hướng di chuyển ô trống trước rồi quay lại thử hướng khác nếu không được. Không hợp lắm vì dễ đi đường dài, không đảm bảo đường ngắn nhất.  
 - UCS: Tìm đường ngắn nhất bằng cách ưu tiên hướng di chuyển ô trống ít bước nhất, giống BFS nhưng tính thêm chi phí. Phù hợp để tìm đường tối ưu nhưng tốn tài nguyên hơn BFS.  
 - IDS: Kết hợp BFS và DFS, thử đi sâu từng mức một, tăng dần độ sâu cho đến khi tìm đích. Phù hợp để tiết kiệm bộ nhớ hơn BFS, nhưng chậm hơn.  
+BFS: 
+![bfs GIF](bfs.gif)
 
 Bảng so sánh:
 
