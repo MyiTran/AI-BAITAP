@@ -61,10 +61,10 @@ Nhận xét: A* là lựa chọn tốt nhất cho 8-puzzle, tìm đường ngắ
 2.3 Tìm kiếm cục bộ  
 Đặc điểm, cách chạy và tính phù hợp:  
 - Simple Hill Climbing: Chọn hướng di chuyển ô trống làm bảng gần đích hơn (dựa vào khoảng cách Manhattan), nhưng dễ bị kẹt nếu không tìm được đích. Ít phù hợp vì map chính không giải được, phải dùng map dễ hơn.
-  ![Simple Hill GIF](Simple-Hill.gif)
+  ![Simple-Hill GIF](Simple-Hill.gif)
 
 - Steepest Ascent Hill Climbing: Tương tự Simple nhưng thử hết hướng, chọn hướng tốt nhất làm bảng gần đích nhất. Cũng ít phù hợp vì dễ kẹt, cần map dễ hơn để hoạt động tốt.
-  ![Steepest Ascent GIF](Steepest-Ascent.gif)
+  ![Steepest-Ascent GIF](Steepest-Ascent.gif)
 
 - Stochastic Hill Climbing: Chọn ngẫu nhiên hướng làm bảng gần đích, tránh kẹt tốt hơn Simple/Steepest. Hợp hơn một chút nhưng vẫn cần map dễ để hiệu quả.
   ![StochasticHill GIF](StochasticHill.gif)
@@ -73,7 +73,7 @@ Nhận xét: A* là lựa chọn tốt nhất cho 8-puzzle, tìm đường ngắ
   ![Beam GIF](Beam.gif)
 
 - Simulated Annealing: Chấp nhận hướng di chuyển không tốt với xác suất giảm dần, tránh kẹt cục bộ. Phù hợp hơn Hill Climbing nhưng vẫn cần map dễ để hiệu quả.
-  ![Simulated Annealing GIF](Simulated-Annealing.gif)
+  ![Simulated-Annealing GIF](Simulated-Annealing.gif)
 
 
 Bảng so sánh:
