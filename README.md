@@ -1,4 +1,5 @@
-# ĐỒ ÁN CÁ NHÂN: GAME 8-PUZZLE VỚI 6 NHÓM THUẬT TOÁN CHÍNH
+# ĐỒ ÁN CÁ NHÂN: GAME 8-PUZZLE VỚI 6 NHÓM THUẬT TOÁN CHÍNH 
+# Tác giả: Trần Thị Trà My
 
 # Mục tiêu và Thành phần chính của bài toán  
 - Mục tiêu: Giải bài toán 8 ô chữ từ trạng thái ban đầu [[7,2,4],[5,0,6],[8,3,1]] đến trạng thái đích [[1,2,3],[4,5,6],[7,8,0]] bằng nhiều thuật toán tìm kiếm khác nhau.  
@@ -8,12 +9,19 @@
 
 2.1 Tìm kiếm không có thông tin  
 Đặc điểm, cách chạy và tính phù hợp:  
-- BFS: Tìm đường bằng cách thử hết các khả năng di chuyển ô trống (lên, xuống, trái, phải) theo từng lớp, đảm bảo tìm đường ngắn nhất. Phù hợp với 8-puzzle nếu cần đường ngắn nhưng tốn nhiều bộ nhớ khi bảng phức tạp.  
-- DFS: Đi sâu hết một hướng di chuyển ô trống trước rồi quay lại thử hướng khác nếu không được. Không hợp lắm vì dễ đi đường dài, không đảm bảo đường ngắn nhất.  
-- UCS: Tìm đường ngắn nhất bằng cách ưu tiên hướng di chuyển ô trống ít bước nhất, giống BFS nhưng tính thêm chi phí. Phù hợp để tìm đường tối ưu nhưng tốn tài nguyên hơn BFS.  
-- IDS: Kết hợp BFS và DFS, thử đi sâu từng mức một, tăng dần độ sâu cho đến khi tìm đích. Phù hợp để tiết kiệm bộ nhớ hơn BFS, nhưng chậm hơn.  
-BFS: 
-![BFS GIF](BFS.gif)
+- BFS: Tìm đường bằng cách thử hết các khả năng di chuyển ô trống (lên, xuống, trái, phải) theo từng lớp, đảm bảo tìm đường ngắn nhất. Phù hợp với 8-puzzle nếu cần đường ngắn nhưng tốn nhiều bộ nhớ khi bảng phức tạp.
+  ![BFS GIF](BFS.gif)
+  
+- DFS: Đi sâu hết một hướng di chuyển ô trống trước rồi quay lại thử hướng khác nếu không được. Không hợp lắm vì dễ đi đường dài, không đảm bảo đường ngắn nhất.
+  ![DFS GIF](DFS.gif)
+  
+- UCS: Tìm đường ngắn nhất bằng cách ưu tiên hướng di chuyển ô trống ít bước nhất, giống BFS nhưng tính thêm chi phí. Phù hợp để tìm đường tối ưu nhưng tốn tài nguyên hơn BFS.
+  ![UCS GIF](UCS.gif)
+  
+- IDS: Kết hợp BFS và DFS, thử đi sâu từng mức một, tăng dần độ sâu cho đến khi tìm đích. Phù hợp để tiết kiệm bộ nhớ hơn BFS, nhưng chậm hơn.
+  ![IDS GIF](IDS.gif)
+
+
 
 Bảng so sánh:
 
@@ -29,9 +37,15 @@ Nhận xét: BFS và UCS tìm được đường ngắn nhất với 20 bước,
 
 2.2 Tìm kiếm có thông tin  
 Đặc điểm, cách chạy và tính phù hợp:  
-- Greedy Best-First Search: Chọn hướng di chuyển ô trống sao cho bảng gần đích nhất, dựa vào khoảng cách từ các ô đến vị trí đúng (khoảng cách Manhattan). Ít phù hợp vì dễ đi đường vòng, không đảm bảo đường ngắn nhất.  
-- A*: Kết hợp số bước đã đi và khoảng cách Manhattan, chọn hướng di chuyển ô trống tốt nhất để vừa ngắn vừa gần đích. Rất phù hợp với 8-puzzle vì tìm được đường ngắn nhất và hiệu quả cao.  
-- IDA*: Giống A* nhưng thử đi sâu từng mức, giới hạn chi phí để tiết kiệm bộ nhớ, sau đó tăng giới hạn nếu không tìm được đích. Phù hợp vì ít tốn bộ nhớ, nhưng chậm hơn A*.  
+- Greedy Best-First Search: Chọn hướng di chuyển ô trống sao cho bảng gần đích nhất, dựa vào khoảng cách từ các ô đến vị trí đúng (khoảng cách Manhattan). Ít phù hợp vì dễ đi đường vòng, không đảm bảo đường ngắn nhất.
+  ![Greedy GIF](Greedy.gif)
+
+- A*: Kết hợp số bước đã đi và khoảng cách Manhattan, chọn hướng di chuyển ô trống tốt nhất để vừa ngắn vừa gần đích. Rất phù hợp với 8-puzzle vì tìm được đường ngắn nhất và hiệu quả cao.
+  ![A* GIF](A*.gif)
+
+- IDA*: Giống A* nhưng thử đi sâu từng mức, giới hạn chi phí để tiết kiệm bộ nhớ, sau đó tăng giới hạn nếu không tìm được đích. Phù hợp vì ít tốn bộ nhớ, nhưng chậm hơn A*.
+  ![IDA* GIF](IDA*.gif)
+
 
 Bảng so sánh:
 
@@ -46,11 +60,21 @@ Nhận xét: A* là lựa chọn tốt nhất cho 8-puzzle, tìm đường ngắ
 
 2.3 Tìm kiếm cục bộ  
 Đặc điểm, cách chạy và tính phù hợp:  
-- Simple Hill Climbing: Chọn hướng di chuyển ô trống làm bảng gần đích hơn (dựa vào khoảng cách Manhattan), nhưng dễ bị kẹt nếu không tìm được đích. Ít phù hợp vì map chính không giải được, phải dùng map dễ hơn.  
-- Steepest Ascent Hill Climbing: Tương tự Simple nhưng thử hết hướng, chọn hướng tốt nhất làm bảng gần đích nhất. Cũng ít phù hợp vì dễ kẹt, cần map dễ hơn để hoạt động tốt.  
-- Stochastic Hill Climbing: Chọn ngẫu nhiên hướng làm bảng gần đích, tránh kẹt tốt hơn Simple/Steepest. Hợp hơn một chút nhưng vẫn cần map dễ để hiệu quả.  
-- Beam Search: Giữ 5 trạng thái bảng tốt nhất, thử di chuyển ô trống từ đó, chọn hướng tốt nhất. Phù hợp vì hiệu quả trên map chính, ít tốn tài nguyên.  
-- Simulated Annealing: Chấp nhận hướng di chuyển không tốt với xác suất giảm dần, tránh kẹt cục bộ. Phù hợp hơn Hill Climbing nhưng vẫn cần map dễ để hiệu quả.  
+- Simple Hill Climbing: Chọn hướng di chuyển ô trống làm bảng gần đích hơn (dựa vào khoảng cách Manhattan), nhưng dễ bị kẹt nếu không tìm được đích. Ít phù hợp vì map chính không giải được, phải dùng map dễ hơn.
+  ![Simple Hill GIF](Simple-Hill.gif)
+
+- Steepest Ascent Hill Climbing: Tương tự Simple nhưng thử hết hướng, chọn hướng tốt nhất làm bảng gần đích nhất. Cũng ít phù hợp vì dễ kẹt, cần map dễ hơn để hoạt động tốt.
+  ![Steepest Ascent GIF](Steepest-Ascent.gif)
+
+- Stochastic Hill Climbing: Chọn ngẫu nhiên hướng làm bảng gần đích, tránh kẹt tốt hơn Simple/Steepest. Hợp hơn một chút nhưng vẫn cần map dễ để hiệu quả.
+  ![StochasticHill GIF](StochasticHill.gif)
+
+- Beam Search: Giữ 5 trạng thái bảng tốt nhất, thử di chuyển ô trống từ đó, chọn hướng tốt nhất. Phù hợp vì hiệu quả trên map chính, ít tốn tài nguyên.
+  ![Beam GIF](Beam.gif)
+
+- Simulated Annealing: Chấp nhận hướng di chuyển không tốt với xác suất giảm dần, tránh kẹt cục bộ. Phù hợp hơn Hill Climbing nhưng vẫn cần map dễ để hiệu quả.
+  ![Simulated Annealing GIF](Simulated-Annealing.gif)
+
 
 Bảng so sánh:
 
@@ -67,16 +91,25 @@ Nhận xét: Map chính không giải được nên Simple, Steepest, Stochastic
 
 2.4 Tìm kiếm trong môi trường phức tạp  
 Đặc điểm, cách chạy và tính phù hợp:  
-- And-Or Graph Search: Xử lý trường hợp không chắc chắn, chọn hướng di chuyển ô trống dựa trên các nhánh logic, thử nhiều khả năng cùng lúc. Không phù hợp vì map chính không giải được, không tìm ra đường đi.  
-- Belief State Search: Làm việc với nhiều trạng thái bảng có thể xảy ra (belief), di chuyển ô trống đồng thời trên các trạng thái, dựa vào khoảng cách trung bình đến đích. Không hợp vì map không giải được, các trạng thái belief không dẫn đến đích.  
-- Partial Observation Search: Lọc trạng thái belief bằng cách nhìn giá trị ở vài ô cố định, chọn hướng di chuyển ô trống dựa trên khoảng cách trung bình. Không hợp vì map không giải được, nhìn vài ô không đủ để tìm đường.  
+- And-Or Graph Search: Xử lý trường hợp không chắc chắn, chọn hướng di chuyển ô trống dựa trên các nhánh logic, thử nhiều khả năng cùng lúc. Không phù hợp vì map chính không giải được, không tìm ra đường đi.
+
+- Belief State Search: Làm việc với nhiều trạng thái bảng có thể xảy ra (belief), di chuyển ô trống đồng thời trên các trạng thái, dựa vào khoảng cách trung bình đến đích. Không hợp vì map không giải được, các trạng thái belief không dẫn đến đích.
+  ![Belief GIF](Belief.gif)
+
+- Partial Observation Search: Lọc trạng thái belief bằng cách nhìn giá trị ở vài ô cố định, chọn hướng di chuyển ô trống dựa trên khoảng cách trung bình. Không hợp vì map không giải được, nhìn vài ô không đủ để tìm đường.
+  ![Partial GIF](Partial.gif)
+
 
 Nhận xét: Cả ba thuật toán đều không hiệu quả với 8-puzzle trong trường hợp này vì map chính không giải được, dẫn đến không tìm được đường đi. And-Or không có lời giải do không xử lý được trạng thái không khả thi. Belief State Search và Partial Observation Search cần map có thể giải và tập trạng thái belief hợp lý, nếu không sẽ thất bại. Nhóm này chỉ hợp với 8-puzzle khi map giải được và có thêm yếu tố không chắc chắn (như không biết hết trạng thái bảng), nhưng với map cố định như hiện tại thì không phát huy được hiệu quả, cần cải thiện map hoặc cách thiết lập bài toán.  
 
 2.5 CSPs  
 Đặc điểm, cách chạy và tính phù hợp:  
-- Backtracking Search: Thử từng hướng di chuyển ô trống, nếu không hợp thì quay lại thử hướng khác, kiểm tra bảng có hợp lệ không. Ít phù hợp vì map không giải được, dẫn đến tìm đường dài và tốn tài nguyên.  
-- Forward Checking: Tương tự Backtracking nhưng kiểm tra trước các ràng buộc sau mỗi bước di chuyển ô trống để giảm khả năng sai. Cũng ít phù hợp vì map không giải được, hiệu quả không khác Backtracking.  
+- Backtracking Search: Thử từng hướng di chuyển ô trống, nếu không hợp thì quay lại thử hướng khác, kiểm tra bảng có hợp lệ không. Ít phù hợp vì map không giải được, dẫn đến tìm đường dài và tốn tài nguyên.
+  ![Backtracking GIF](Backtracking.gif)
+
+- Forward Checking: Tương tự Backtracking nhưng kiểm tra trước các ràng buộc sau mỗi bước di chuyển ô trống để giảm khả năng sai. Cũng ít phù hợp vì map không giải được, hiệu quả không khác Backtracking.
+  ![ForwardChecking GIF](ForwardChecking.gif)
+ 
 
 Bảng so sánh:
 
@@ -90,7 +123,9 @@ Nhận xét: Cả hai thuật toán đều không hiệu quả với 8-puzzle tr
 
 2.6 Học tăng cường  
 Đặc điểm, cách chạy và tính phù hợp:  
-- Q-Learning: Học cách di chuyển ô trống qua thử sai, dựa vào phần thưởng (khoảng cách đến đích và khi đạt đích), sau nhiều lần thử sẽ chọn hướng tốt nhất. Phù hợp với 8-puzzle vì có thể tìm đường tối ưu, nhưng cần thời gian học lâu.  
+- Q-Learning: Học cách di chuyển ô trống qua thử sai, dựa vào phần thưởng (khoảng cách đến đích và khi đạt đích), sau nhiều lần thử sẽ chọn hướng tốt nhất. Phù hợp với 8-puzzle vì có thể tìm đường tối ưu, nhưng cần thời gian học lâu.
+  ![Q-learning GIF](Q-learning.gif)
+
 
 Bảng so sánh:
 
