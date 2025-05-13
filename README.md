@@ -64,7 +64,7 @@ Nhận xét: A* là lựa chọn tốt nhất cho 8-puzzle, tìm đường ngắ
   ![Simple-Hill GIF](Simple-Hill.gif)
 
 - Steepest Ascent Hill Climbing: Tương tự Simple nhưng thử hết hướng, chọn hướng tốt nhất làm bảng gần đích nhất. Cũng ít phù hợp vì dễ kẹt, cần map dễ hơn để hoạt động tốt.
-  ![Steepest-Ascent GIF](Steepest-Ascent.gif)
+  ![Steepest_Ascent GIF](Steepest-Ascent.gif)
 
 - Stochastic Hill Climbing: Chọn ngẫu nhiên hướng làm bảng gần đích, tránh kẹt tốt hơn Simple/Steepest. Hợp hơn một chút nhưng vẫn cần map dễ để hiệu quả.
   ![StochasticHill GIF](StochasticHill.gif)
